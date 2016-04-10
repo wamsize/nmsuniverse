@@ -6,14 +6,22 @@ include('scripts/grabVideo.php');
 <html>
 	<head>
 		<title>NMS Universe</title>
-		<?php include('meta.php'); ?>
+		<?php include('scripts/meta.php'); ?>
 		<link rel="stylesheet" href="css/style.css"/>
+		<link rel="stylesheet" href="css/mobile.css"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 	</head>
 	<body>
+		<div class="ham" style="width: 30px; height: 30px; position: absolute; top: 5vh; left: 5vh; z-index: 5;">
+			<div id="ham">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</div>
 		<div class="back" style="position: absolute; top: 0; width: 100%; height: 100%; background-image: url(img/home.jpg); background-size: cover; background-repeat: no-repeat; background-position: center center;"></div>
 		<div class="home-cover" style="width: 100%; height: 100%; position: absolute; background-color: rgba(0,0,0,0.4);"></div>
-		<div class="icon" style="position: absolute; z-index: 3; width: 20%; padding-left: 40%; margin-left: 20px; text-align: center; margin-top: 30px;"><a href=""><img src="img/nmsu_white.png" style="width: 100px; height: 100px; margin-left: -40px;" /></a></div>
+		<div class="icon"><a href=""><img id="icon" src="img/nmsu_white.png" style="width: 100px; height: 100px; margin-left: -40px;" /></a></div>
 		<div class="nav" style="position: absolute; top: 5vh; right: 20px; z-index: 3; width: 100%; text-align: right;">
 			<div class="nav-item">
 				<a href="/about">About</a>
@@ -32,19 +40,19 @@ include('scripts/grabVideo.php');
 					<h4 style="margin: 0; margin-top: 15px; text-align: center;">Log In</h4>
 					<table cellpadding="2">
 						<tr>
-							<td style="width: 30px; vertical-align: bottom;">
+							<td style="width: 20px; vertical-align: bottom;">
 								Username: 
 							</td>
 							<td style="width: 30px;">
-								<input type="text" id="user" name="username" style="width: 90px;" />
+								<input type="text" id="user" name="username" style="width: 110px;" />
 							</td>
 						</tr>
 						<tr>
-							<td style="width: 30px; vertical-align: bottom;">
+							<td style="width: 20px; vertical-align: bottom;">
 								Password: 
 							</td>
 							<td>
-								<input type="password" name="password" style="width: 90px;" />
+								<input type="password" name="password" style="width: 110px;" />
 							</td>
 						</tr>
 						<tr>
@@ -59,7 +67,7 @@ include('scripts/grabVideo.php');
 		</div>
 		<div id="home" class="content" style="position: absolute; top: 0; width: 100%; height: 100%; color: white;">
 			<div class="home-cover2" style="width: 100%; height: 100%; position: absolute; z-index: 5; display: none; background-color: rgba(0,0,0,0.7);"></div>
-			<img src="img/logo.png" style="width: 40%; margin-left: 30%; margin-top: 160px; text-align: center;"/>
+			<img class="logo" src="img/logo.png"/>
 			<div class="vid" style="position: absolute; top: 42vh; width: 100%; text-align: center;">
 				<h3>Watch the Trailer</h3>
 				<img id="play" src="img/NMS_Play.png" style="width: 70px; height: 70px;" />
@@ -67,8 +75,8 @@ include('scripts/grabVideo.php');
 			<div class="video" style="position: absolute; top: 20vh; width: 100%; text-align: center; display: none;">
 				<iframe class="YT" style="position: relative; z-index: 10; width: 50%;" src="https://www.youtube.com/embed/eBERVWYa-1Y" frameborder="0" allowfullscreen></iframe>
 			</div>
-			<div style="position: absolute; bottom: 3vh; width: 100%; text-align: center;">
-				<p style="font-size: 0.9em">Click to Scroll Down</p>
+			<div style="position: absolute; bottom: 5vh; width: 100%; text-align: center;">
+				<p class="down" style="font-size: 0.9em"></p>
 				<img id="down" style="height: 5vh; width: 5vh;" src="img/down.png" />
 			</div>
 		</div>
@@ -88,7 +96,7 @@ include('scripts/grabVideo.php');
 					<img src="img/dot.png" style="height: 1em; width: 1em;"/><span style="padding-left: 5px; vertical-align: top;">Twitch</span>
 				</div>
 			</div>
-			<div id="description" class="content" style="background-color: white; position: relative; padding: 60px 20vw;">
+			<div id="description" class="content">
 				<h1>Welcome to No Man's Sky Universe!</h1><br>
 				The No Man's Sky Universe website was created as a result of inspiration from the game creators itself. Conceived as a game about exploration 
 				and discovery, No Man's Sky appeals the Minecrafty and FPS players alike, but its original and current design gives the most benefit to the 
@@ -102,17 +110,17 @@ include('scripts/grabVideo.php');
 				the <a href="/about">About Page</a>. Thanks for visiting and enjoy your stay!<br><br><br>
 			</div>
 			<div id="highlights" class="content" style="background-color: #ddd; position: relative; text-align: center;">
-				<div id="mbv" class="highlight" style="color: white; text-align: center; width: 100%; height: 33.3vh; margin: 0; position: relative; background-image: url(img/bg2.jpg); background-size: cover; background-attachment: fixed; background-repeat: no-repeat; background-position: center center;">
+				<div id="mbv" class="highlight" style="background-image: url(img/bg2.jpg);">
 					<div class="cover" style="width: 100%; height: 33.3vh; position: absolute; top: 0; margin: 0; background-color: rgba(0,0,0,0.5);">
 						<h1>Most Breathtaking View</h1><br><h4>Uploaded by Mo</h4>
 					</div>
 				</div>
-				<div id="mil" class="highlight" style="color: white; text-align: center; width: 100%; height: 33.3vh; margin: 0; position: relative; background-image: url(img/bg3.jpg); background-size: cover; background-attachment: fixed; background-repeat: no-repeat; background-position: center center;">
+				<div id="mil" class="highlight" style="background-image: url(img/bg3.jpg);">
 					<div class="cover" style="width: 100%; height: 33.3vh; position: absolute; top: 0; margin: 0; background-color: rgba(0,0,0,0.5);">	
 						<h1>Most Interesting Life</h1><br><h4>Uploaded by Joey454</h4>
 					</div>
 				</div>
-				<div id="mhm" class="highlight" style="color: white; text-align: center; width: 100%; height: 33.3vh; margin: 0; position: relative; background-image: url(img/bg1.png); background-size: cover; background-attachment: fixed; background-repeat: no-repeat; background-position: center center;">
+				<div id="mhm" class="highlight" style="background-image: url(img/bg1.png);">
 					<div class="cover" style="width: 100%; height: 33.3vh; position: absolute; top: 0; margin: 0; background-color: rgba(0,0,0,0.5);">
 						<h1>Most Hilarious Moment</h1><br><h4>Uploaded by NMSWorld</h4>
 					</div>
@@ -148,7 +156,7 @@ include('scripts/grabVideo.php');
 			</div>
 			
 			<div id="footer" class="content" style="background-color: #ccc; position: relative; text-align: center; padding: 60px 8vw;">
-				<table cellpadding="5" style="width: 80%; margin-left: 10%;">
+				<table id="foot" cellpadding="5" style="width: 90%; margin-left: 5%;">
 					<tr>
 						<td rowspan="3" style="padding: 0; margin: 0;">
 							<img src="img/nmsu.png" style="width: 70px; height: 70px;" />
@@ -214,8 +222,10 @@ include('scripts/grabVideo.php');
 						</td>
 					</tr>
 				</table>
+				<?php include('scripts/mob-foot.php'); ?>
 			</div>
 		</div>
 		<script src="js/home.js"></script>
+		<script src="js/mobile.js"></script>
 	</body>
 </html>

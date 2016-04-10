@@ -1,4 +1,5 @@
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, height=device-height" />
 <meta name="description" content="No Man's Sky Universe is the internet home for the massive universe that is the No Man's Sky video game.">
 <meta name="keywords" content="No Man's Sky, NMS, NMSU, NMS Universe, No Man's Sky Universe, Universe">
 <meta property="og:title" content="No Man's Sky Universe" />
