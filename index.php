@@ -135,7 +135,12 @@ include('scripts/grabVideo.php');
 					echo 'There are currently no twitch streams available that are not marked for mature audiences. Visit the Twitch website to see other options.';
 				} else {
 					?>
-					<p class="p-button" style="display: inline; text-decoration: underline;" onClick="toggleChat()">Open Stream Chat</p>&nbsp;&nbsp; | &nbsp;&nbsp;<a style="text-color: black;" target="_blank" href="https://www.twitch.tv/<?php echo $twitchurl; ?>">Watch on Twitch TV</a><br><br>
+					<p class="p-button" style="display: inline; text-decoration: underline;" onClick="toggleChat()">
+                        Open Stream Chat
+                    </p>
+                    &nbsp;&nbsp; | &nbsp;&nbsp;
+                    <a style="text-color: black;" target="_blank" href="https://www.twitch.tv/<?php echo $twitchurl; ?>">Watch on Twitch TV</a>
+                    <br><br>
 					<iframe class="t-vid"
 						src="http://player.twitch.tv/?channel=<?php echo $twitchurl; ?>&!autoplay" 
 						frameborder="0"
