@@ -164,8 +164,10 @@ $(document).ready(function() {
 	});
 	
 	var map = 0;
+    var loc = 0; // 0 = home; 1 = description; 2 = highlights; 3 = twitch
 	var prevScr = 0;
 	var scr = 0;
+    var dir = 0; // 0 = down; 1 = up;
 	
 	$(window).scroll(function() {
 		
@@ -173,8 +175,11 @@ $(document).ready(function() {
 		var mult = 0.5;
 		
 		if (prevScr < scr) {
+            dir = 0;
 			mult = 0.75;
-		}
+		} else {
+            dir = 1;
+        }
 		
 		if ($(this).scrollTop() > ($(window).height() * mult) && map == 0) {
 			map = 1;
@@ -196,35 +201,45 @@ $(document).ready(function() {
 		var hm = 0;					
 		var desc, high, tw;
 		
-		if (prevScr < scr) { // scrolling down
+		if (dir == 0) { // scrolling down
 			desc = $(".content#description").offset().top - ($(".content#home").height() * 0.2);
 			high = $(".content#highlights").offset().top - ($(".content#description").height() * 0.2);
 			tw = $(".content#twitch").offset().top  - ($(".content#highlights").height() * 0.2);
-		} else {
+        } else {
 			desc = $(".content#description").offset().top - ($(".content#home").height() * 0.8);
 			high = $(".content#highlights").offset().top - ($(".content#description").height() * 0.8);
 			tw = $(".content#twitch").offset().top  - ($(".content#highlights").height() * 0.8);
 		}
 		if (scr < desc) {
-			$(".key#description").css("opacity", "0.2");
-			$(".key#highlights").css("opacity", "0.2");
-			$(".key#twitch").css("opacity", "0.2");
-			$(".key#home").css("opacity", "1");
+            if (loc > 0 && dir == 1) {
+                $(".key#description").css("opacity", "0.2");
+                $(".key#highlights").css("opacity", "0.2");
+                $(".key#twitch").css("opacity", "0.2");
+                $(".key#home").css("opacity", "1");
+                loc = 0;
+            }
 		} else if (scr < high && scr >= desc) {
-			$(".key#home").css("opacity", "0.2");
-			$(".key#highlights").css("opacity", "0.2");
-			$(".key#twitch").css("opacity", "0.2");
-			$(".key#description").css("opacity", "1");
+            if ((loc > 1 && dir == 1) || (loc < 1 && dir == 0)) {
+                $(".key#home").css("opacity", "0.2");
+                $(".key#highlights").css("opacity", "0.2");
+                $(".key#twitch").css("opacity", "0.2");
+                $(".key#description").css("opacity", "1");
+                loc = 1;
+            }
 		} else if (scr < tw && scr >= high) {
-			$(".key#description").css("opacity", "0.2");
-			$(".key#home").css("opacity", "0.2");
-			$(".key#twitch").css("opacity", "0.2");
-			$(".key#highlights").css("opacity", "1");
+            if ((loc > 2 && dir == 1) || (loc < 2 && dir == 0)) {
+                $(".key#description").css("opacity", "0.2");
+                $(".key#home").css("opacity", "0.2");
+                $(".key#twitch").css("opacity", "0.2");
+                $(".key#highlights").css("opacity", "1");
+                loc = 2;
+            }
 		} else {
 			$(".key#description").css("opacity", "0.2");
 			$(".key#highlights").css("opacity", "0.2");
 			$(".key#home").css("opacity", "0.2");
 			$(".key#twitch").css("opacity", "1");
+            loc = 3;
 		}
 		
 	}
