@@ -252,4 +252,15 @@ $(document).ready(function() {
 	}
 	var heightforvid = $(document).width() * 360 / 640 * multiplier;
 	setTimeout($(".t-vid, .t-chat").css("height", heightforvid), 10);
+	
+	var twitchq = false;
+	$('#twitch-q').click(function() {
+		if (twitchq == false ) {
+			$('.twitch-q').show();
+			twitchq = true;
+		} else {
+			$('.twitch-q').hide();
+			twitchq = false;
+		}
+	});
 });

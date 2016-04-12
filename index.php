@@ -54,10 +54,10 @@ include('scripts/grabVideo.php');
 		<div class="icon"><a href=""><img id="icon" src="img/nmsu_white.png" style="width: 100px; height: 100px; margin-left: -40px;" /></a></div>
 		<div class="nav" style="position: absolute; top: 5vh; right: 20px; z-index: 3; width: 100%; text-align: right;">
 			<div class="nav-item">
-				<a href="/about">About</a>
+				<a href="/uploads">Uploads</a>
 			</div>
 			<div class="nav-item">
-				<a href="/uploads">Recent Uploads</a>
+				<a href="/translator">Translator</a>
 			</div>
 			<div class="nav-item">
 				<a href="/forums">Forums</a>
@@ -133,11 +133,10 @@ include('scripts/grabVideo.php');
 				explorers of the infinite, procedurally-generated universe. With this in mind, this website was designed as a user-compiled gallery of the 
 				most breathtaking views, obscure animal life, and intriguing interactions we players experience in No Man's Sky.<br><br>
 				
-				Among other things, users of the site will be able to upload their screenshots, describe their discoveries, and vote on a series of weekly 
-				competitions: 1) Most Breathtaking View, 2) Most Interesting Life, 3) Most Hilarious Moment. Occasionally, a surprise poll will be created 
-				for the enjoyment of the users as well. Please note that voting and uploading is limited to registered members only, and that anonymous users 
-				have only the ability to view the uploads. But don't worry! Registration is easy and free! To learn more about how the website works, visit 
-				the <a href="/about">About Page</a>. Thanks for visiting and enjoy your stay!<br><br><br>
+				Among other things, users of the site will be able to upload their screenshots, describe their discoveries, share information about alien
+				languages, and vote on a series of weekly competitions: 1) Most Breathtaking View, 2) Most Interesting Life, 3) Most Hilarious Moment. 
+				Please note that voting and uploading is limited to registered members only, and that anonymous users have only the ability to view the 
+				uploads. But don't worry! Registration is easy and free! Thanks for visiting and enjoy your stay!<br><br><br>
 			</div>
 			<div id="highlights" class="content" style="background-color: #ddd; position: relative; text-align: center;">
 				<div id="mbv" class="highlight" style="background-image: url(img/bg2.jpg);">
@@ -158,7 +157,11 @@ include('scripts/grabVideo.php');
 			</div>
 			<div id="twitch" class="content" style="background-color: white; position: relative; text-align: center; padding: 60px 10vw;">
 				<h1>Twitch Stream: <span style="font-family: 'Trebuchet MS', Helvetica, sans-serif"><strong><?php echo $twitchurl; ?></strong></span></h1>
-				<p style="font-size: 8pt;"><a href="/twitchstream">How is this determined?</a></p>
+				<div id="twitch-q" style="font-size: 8pt; text-decoration: underline;">How is this determined?</div>
+				<p class="twitch-q" style="font-size: 10pt; display: none;">
+					An algorithm and the Twitch API Kraken are used to create this feed. A randomly selected non-mature video from
+					the top ten most popular No Man's Sky streamers is featured here.
+				</p>
 				<br>
 				<?php
 				if (strcmp($twitchurl, "") == 0) {

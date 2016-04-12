@@ -15,7 +15,7 @@ a {
 	color: black;
 }
 
-.cover:hover, .p-button:hover, #play:hover, #down:hover, .key:hover, .btn-log:hover {
+.cover:hover, .p-button:hover, #play:hover, #down:hover, .key:hover, .btn-log:hover, #twitch-q:hover {
 	cursor: pointer;
 }
 
