@@ -12,11 +12,41 @@ include('scripts/grabVideo.php');
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 	</head>
 	<body>
-		<div class="ham" style="width: 30px; height: 30px; position: absolute; top: 5vh; left: 5vh; z-index: 5;">
+		<div class="ham" style="width: 30px; height: 30px; position: absolute; top: 5vh; left: 5vh; z-index: 11;">
 			<div id="ham">
 				<span></span>
 				<span></span>
 				<span></span>
+			</div>
+		</div>
+		<div class="mob-cover" style="width: 100%; height: 100%; position: absolute; z-index: 5; background-color: rgba(0,0,0,0.4); display: none;"></div>
+		<div class="sidebar" style="position: absolute; left: -50%; padding: 20px 0; width: 50%; z-index: 10; background: black; height: calc(100% - 40px); max-height: 100vh; overflow: none;">
+			<a href=""><img src="img/nmsu_white.png" style="width: 30%; margin-left: 35%;"></a>
+			<div class="tab">Uploads</div>
+			<div class="tab">Translator</div>
+			<div class="tab">Forums</div>
+			<div class="mob-login" style="padding: 0; margin: 10px 10%; border: 1px solid white; width: 80%; text-align: center; color: white; background-color: rgba(0,0,0,0.2);">
+				<form action="" method="POST">
+					<h4 style="margin: 0; margin-top: 15px; text-align: center;">Log In</h4>
+					<table cellpadding="2">
+						<tr>
+							<td style="width: 20px; max-width: 50%;">
+								<input type="text" id="user" name="username" style="width: 110px; max-width: 100%;" placeholder="Username" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="password" name="password" style="width: 110px;" placeholder="Password" />
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" style="text-align: center;">
+								<input type="button" name="submit" value="Submit" style="margin-top: 5px; width: 40%;" /><br>
+								<p style="font-size: 0.8em;">Or <a style="color: #c58550" href="/register">Register Here</a>.</p>
+							</td>
+						</tr>
+					</table>
+				</form>
 			</div>
 		</div>
 		<div class="back" style="position: absolute; top: 0; width: 100%; height: 100%; background-image: url(img/home.jpg); background-size: cover; background-repeat: no-repeat; background-position: center center;"></div>
@@ -136,11 +166,11 @@ include('scripts/grabVideo.php');
 				} else {
 					?>
 					<p class="p-button" style="display: inline; text-decoration: underline;" onClick="toggleChat()">
-                        Open Stream Chat
-                    </p>
-                    &nbsp;&nbsp; | &nbsp;&nbsp;
-                    <a style="text-color: black;" target="_blank" href="https://www.twitch.tv/<?php echo $twitchurl; ?>">Watch on Twitch TV</a>
-                    <br><br>
+						Open Stream Chat
+					</p>
+					&nbsp;&nbsp; | &nbsp;&nbsp;
+					<a style="text-color: black;" target="_blank" href="https://www.twitch.tv/<?php echo $twitchurl; ?>">Watch on Twitch TV</a>
+					<br><br>
 					<iframe class="t-vid"
 						src="http://player.twitch.tv/?channel=<?php echo $twitchurl; ?>&!autoplay" 
 						frameborder="0"

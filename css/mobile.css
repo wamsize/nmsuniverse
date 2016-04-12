@@ -18,11 +18,12 @@
 		display: none !important;
 	}
 	.logo {
-        max-width: 550px;
+		max-width: 550px;
 		text-align: center;
 		margin-top: 45vh;
 		width: 70%;
 		margin-left: 15%;
+		margin-right: 15%;
 	}
 	.icon {
 		margin-top: 10vh;
@@ -30,14 +31,16 @@
 	.down:after {
 		content: 'Tap to Scroll Down';
 	}
-	#description {
-		padding: 10px 10vw;
+	.content#description {
+		padding: 0 10vw;
 	}
 	.highlight {
 		background-attachment: inherit;
 	}
 }
 
+
+/* Hamburger */
 
 
 #ham {
@@ -88,7 +91,7 @@
 	-moz-transform: rotate(45deg);
 	-o-transform: rotate(45deg);
 	transform: rotate(45deg);
-	left: 200px;
+	left: 40vw;
 }
 
 #ham.open span:nth-child(1) {
@@ -96,7 +99,7 @@
 	-moz-transform: rotate(-45deg);
 	-o-transform: rotate(-45deg);
 	transform: rotate(-45deg);
-	left: 200px;
+	left: 40vw;
 }
 
 
@@ -107,4 +110,23 @@
 
 .ham:hover {
 	cursor: pointer;
+}
+
+
+.tab {
+	line-height: 3;
+	width: 100%;
+	color: white;
+	height: 50px;
+	max-height: 20%;
+	text-align: center;
+}
+
+.tab:hover {
+	cursor: pointer;
+	background-color: #c58550;
+}
+
+.sidebar .tab:nth-of-type(1) {
+	margin-top: 10px;
 }
