@@ -77,6 +77,7 @@ V0.6: Responsive Designing
   End: 5/30/16
 
 ----BREAK: 5/31 to 6/6----
+
 V0.7: Code Cleaning
   3 Days
   Begin: 6/7/16
