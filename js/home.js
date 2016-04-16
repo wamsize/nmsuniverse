@@ -263,4 +263,28 @@ $(document).ready(function() {
 			twitchq = false;
 		}
 	});
+	
+	$('#sub').click(function() {		
+		var user = $('#user').val();
+		var pass = $('#pass').val();
+		$.ajax({
+			url: "scripts/login.php",
+			type: "GET",
+			dataType: "text",
+			data: {
+				"username" : user,
+				"pass" : pass
+			},
+			success: function(info){
+				if (info == '0') {
+					window.location.href="";
+				} else {
+					$('.login-status').html("Credentials invalid.");
+				}
+			},
+			error: function(xhr, status, error) {
+				alert('ERROR: ' + error);
+			}
+		});
+	});
 });
