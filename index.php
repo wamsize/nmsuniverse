@@ -13,7 +13,7 @@ include('scripts/grabVideo.php');
 	</head>
 	<body>
 		<div class="ham" style="width: 30px; height: 30px; position: absolute; top: 5vh; left: 5vh; z-index: 11;">
-			<div id="ham">
+			<div id="ham
 				<span></span>
 				<span></span>
 				<span></span>
