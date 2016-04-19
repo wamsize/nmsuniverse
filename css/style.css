@@ -87,13 +87,16 @@ input[type="button"]:hover, button:hover, input[type="button"]:focus, button:foc
 	text-align: center;
 }
 
-.icon {
+.icon, .icon-page {
 	position: absolute;
 	z-index: 3;
+	text-align: center;
+}
+
+.icon {
 	width: 20%;
 	padding-left: 40%;
 	margin-left: 20px;
-	text-align: center;
 	margin-top: 30px;
 }
 

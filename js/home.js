@@ -287,4 +287,28 @@ $(document).ready(function() {
 			}
 		});
 	});
+	
+	$('#sub-mob').click(function() {		
+		var user = $('#user-mob').val();
+		var pass = $('#pass-mob').val();
+		$.ajax({
+			url: "scripts/login.php",
+			type: "GET",
+			dataType: "text",
+			data: {
+				"username" : user,
+				"pass" : pass
+			},
+			success: function(info){
+				if (info == '0') {
+					window.location.href="";
+				} else {
+					$('.login-status-mob').html("Credentials invalid.");
+				}
+			},
+			error: function(xhr, status, error) {
+				alert('ERROR: ' + error);
+			}
+		});
+	});
 });
