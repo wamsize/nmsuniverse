@@ -6,3 +6,6 @@ RewriteCond %{SCRIPT_FILENAME} !-f
 
 RewriteRule ^user/(\w+)$ ./profile.php?username=$1
 RewriteRule ^user/(\w+)/$ ./profile.php?username=$1
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]

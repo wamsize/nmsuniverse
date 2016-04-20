@@ -150,7 +150,7 @@ $(document).ready(function() {
 		}
 	});
 	
-	$(".content#home").click(function() {
+	$(".content#home, .container").click(function() {
 		if (login == 1) {
 			$(".login").hide();
 			login = 0;

@@ -42,12 +42,17 @@ if ($exists == 1) {
 		<link rel="stylesheet" href="../css/style.css"/>
 		<link rel="stylesheet" href="../css/mobile.css"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+		<style>
+			.nav-item, .nav-item a {
+				color: black;
+			}
+		</style>
 	</head>
-	<body>
+	<body style="background-color: white;">
 		<?php include('scripts/mob-nav.php') ?>
-		<div class="back" style="position: absolute; top: 0; width: 100%; height: 100%; <?php include('scripts/determineback.php'); ?> background-size: cover; background-repeat: no-repeat; background-position: center center;"></div>
-		<div class="home-cover" style="width: 100%; height: 100%; position: absolute; background-color: rgba(0,0,0,0.4);"></div>
-		<div class="icon-page"><a href="/"><img id="icon" src="../img/nmsu_white.png" style="position: absolute; left: 20px; top: 32px; width: 64px; height: 64px;" /></a></div>
+		<div class="back" style="position: absolute; top: 20vh; width: 100%; height: 100%; <?php include('scripts/determineback.php'); ?> background-size: cover; background-repeat: no-repeat; background-position: center center;"></div>
+		<div class="home-cover" style="width: 100%; height: 100%; position: absolute; top: 20vh; background-color: rgba(0,0,0,0.4);"></div>
+		<div class="icon-page"><a href="/"><img id="icon" src="../img/nmsu.png" style="position: absolute; left: 20px; top: 32px; width: 64px; height: 64px;" /></a></div>
 		<?php include('scripts/nav.php'); ?>
 		<div class="container" style="position: absolute; top: 0;">
 			<!-- Not sure if this will be needed... -->

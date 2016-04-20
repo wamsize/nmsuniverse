@@ -11,7 +11,7 @@
 	<div class="btn-log nav-item" style="text-decoration: underline;">
 		Log In
 	</div>
-	<div class="login" style="position: absolute; right: 15px; top: 5vh; padding: 0 15px; border: 1px solid white; width: 200px; text-align: left; color: white; display: none; background-color: rgba(0,0,0,0.2);">
+	<div class="login" style="position: absolute; right: 15px; top: 5vh; padding: 0 15px; border: 1px solid white; width: 200px; text-align: left; color: white; display: none; background-color: rgba(0,0,0,0.7);">
 		<form action="" method="POST">
 			<h4 style="margin: 0; margin-top: 15px; text-align: center;">Log In</h4>
 			<p class="login-status" style="color: red; margin: 5px; padding: 0; text-align: center; font-size: 0.8em;"></p>
