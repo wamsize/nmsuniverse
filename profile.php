@@ -7,6 +7,10 @@ session_start();
 mysql_connect("localhost", "nomanssky", "wondering");
 mysql_select_db("nms_users");
 
+if (isset($_SESSION['login'])) {
+	include('scripts/loginUser.php');
+}
+
 $user = $_GET['username'];
 
 $sql = "SELECT * FROM users WHERE username = '$user'";
@@ -15,10 +19,10 @@ $exists = mysql_num_rows($result);
 
 if ($exists == 1) {
 	// it works!
-	$me = mysql_fetch_array($result);
+	$thisUser = mysql_fetch_array($result);
 	
 	/* check for uploads by user
-	$id = $me['id'];
+	$id = $thisUser['id'];
 	
 	mysql_select_db("screenshots");
 	
@@ -37,7 +41,7 @@ if ($exists == 1) {
 <!DOCTYPE html>
 <html>
 	<head>
-		<title><?php echo $me['username'] . ' | ' . 'NMS Universe'; ?></title>
+		<title><?php echo $thisUser['username'] . ' | ' . 'NMS Universe'; ?></title>
 		<?php include('scripts/meta.php'); ?>
 		<link rel="stylesheet" href="../css/style.css"/>
 		<link rel="stylesheet" href="../css/mobile.css"/>
@@ -57,27 +61,13 @@ if ($exists == 1) {
 		<div class="container" style="position: absolute; top: 0;">
 			<!-- Not sure if this will be needed... -->
 			
-			<div class="content" id="avatar" style="background-color: white; background-image: url(<?php echo $me['avatar'] ?>); background-size: cover; background-repeat: no-repeat; background-position: center center; position: absolute; top: calc(20vh - 64px); left: calc(50vw - 64px); width: 128px; height: 128px; overflow: hidden; border-radius: 5px; border: 1px solid black; text-align: center; z-index: 5;">
+			<div class="content" id="avatar" style="background-color: white; background-image: url(<?php echo $thisUser['avatar'] ?>); background-size: cover; background-repeat: no-repeat; background-position: center center; position: absolute; top: calc(20vh - 64px); left: calc(50vw - 64px); width: 128px; height: 128px; overflow: hidden; border-radius: 5px; border: 1px solid black; text-align: center; z-index: 5;">
 			</div>
 			
 			<div class="content" id ="main" style="margin-top: 20vh; background-color: rgba(256,256,256,0.5); width: 100%; height: 80vh;">
 				<div style="padding-top: 64px;">
-					<h1 style="text-align: center;"><?php echo $me['username']; ?></h1>
-					<p style="text-align: center; width: 60%; margin-left: 20%; margin-right: 20%;"><strong>Bio: </strong><?php echo $me['bio']; ?></p>
-					HEY<br>
-					HEY<br>
-					HEY<br>
-					
-					<span class="lkj" style="width: 20%;">
-						<p>HEH</p>
-						<p>HAH</p>
-						<p>HOH</p>
-						<p>HUH</p>
-					</span>
-					<span class="jkl" style="width: 80%;">
-						OINK!
-					</span>
-					
+					<h1 style="text-align: center;"><?php echo $thisUser['username']; ?></h1>
+					<p style="text-align: center; width: 60%; margin-left: 20%; margin-right: 20%;"><strong>Bio: </strong><?php echo $thisUser['bio']; ?></p>
 				</div>
 			</div>
 			

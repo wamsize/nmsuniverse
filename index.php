@@ -6,7 +6,11 @@ include('scripts/grabVideo.php');
 session_start();
 
 mysql_connect("localhost", "nomanssky", "wondering");
-mysql_select_db("users");
+mysql_select_db("nms_users");
+
+if (isset($_SESSION['login'])) {
+	include('scripts/loginUser.php');
+}
 
 ?>
 
@@ -61,50 +65,7 @@ mysql_select_db("users");
 		<div class="back" style="position: absolute; top: 0; width: 100%; height: 100%; background-image: url(img/home.jpg); background-size: cover; background-repeat: no-repeat; background-position: center center;"></div>
 		<div class="home-cover" style="width: 100%; height: 100%; position: absolute; background-color: rgba(0,0,0,0.4);"></div>
 		<div class="icon"><a href=""><img id="icon" src="img/nmsu_white.png" style="width: 100px; height: 100px; margin-left: -40px;" /></a></div>
-		<div class="nav" style="position: absolute; top: 5vh; right: 20px; z-index: 3; width: 100%; text-align: right;">
-			<div class="nav-item">
-				<a href="/uploads">Uploads</a>
-			</div>
-			<div class="nav-item">
-				<a href="/translator">Translator</a>
-			</div>
-			<div class="nav-item">
-				<a href="/forums">Forums</a>
-			</div>
-			<div class="btn-log nav-item" style="text-decoration: underline;">
-				Log In
-			</div>
-			<div class="login" style="position: absolute; right: 15px; top: 5vh; padding: 0 15px; border: 1px solid white; width: 200px; text-align: left; color: white; display: none; background-color: rgba(0,0,0,0.2);">
-				<form action="" method="POST">
-					<h4 style="margin: 0; margin-top: 15px; text-align: center;">Log In</h4>
-					<p class="login-status" style="color: red; margin: 5px; padding: 0; text-align: center; font-size: 0.8em;"></p>
-					<table cellpadding="2">
-						<tr>
-							<td style="width: 20px; vertical-align: bottom;">
-								Username: 
-							</td>
-							<td style="width: 30px;">
-								<input id="user" type="text" name="username" style="width: 110px;" />
-							</td>
-						</tr>
-						<tr>
-							<td style="width: 20px; vertical-align: bottom;">
-								Password: 
-							</td>
-							<td>
-								<input id="pass" type="password" name="password" style="width: 110px;" />
-							</td>
-						</tr>
-						<tr>
-							<td colspan="2" style="text-align: center;">
-								<input id="sub" type="button" name="submit" value="Submit" style="margin-top: 5px; width: 40%;" /><br>
-								<p style="font-size: 0.8em;">Or <a style="color: #c58550" href="/register">Register Here</a>.</p>
-							</td>
-						</tr>
-					</table>
-				</form>
-			</div>
-		</div>
+		<?php include('scripts/nav.php'); ?>
 		<div id="home" class="content" style="position: absolute; top: 0; width: 100%; height: 100%; color: white;">
 			<div class="home-cover2" style="width: 100%; height: 100%; position: absolute; z-index: 5; display: none; background-color: rgba(0,0,0,0.7);"></div>
 			<img class="logo" src="img/logo.png"/>

@@ -1,7 +1,7 @@
 <?php
 session_start();
 mysql_connect("localhost", "nomanssky", "wondering");
-mysql_select_db("users");
+mysql_select_db("nms_users");
 
 $user = $_GET['username'];
 $pass = md5($_GET['pass']);
