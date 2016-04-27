@@ -150,7 +150,7 @@ $(document).ready(function() {
 		}
 	});
 	
-	$(".content#home").click(function() {
+	$(".content#home, .container").click(function() {
 		if (login == 1) {
 			$(".login").hide();
 			login = 0;
@@ -262,5 +262,53 @@ $(document).ready(function() {
 			$('.twitch-q').hide();
 			twitchq = false;
 		}
+	});
+	
+	$('#sub').click(function() {		
+		var user = $('#user').val();
+		var pass = $('#pass').val();
+		$.ajax({
+			url: "scripts/login.php",
+			type: "GET",
+			dataType: "text",
+			data: {
+				"username" : user,
+				"pass" : pass
+			},
+			success: function(info){
+				if (info == '0') {
+					window.location.href="";
+				} else {
+					$('.login-status').html("Credentials invalid.");
+				}
+			},
+			error: function(xhr, status, error) {
+				alert('ERROR: ' + error);
+			}
+		});
+	});
+	
+	$('#sub-mob').click(function() {		
+		var user = $('#user-mob').val();
+		var pass = $('#pass-mob').val();
+		$.ajax({
+			url: "scripts/login.php",
+			type: "GET",
+			dataType: "text",
+			data: {
+				"username" : user,
+				"pass" : pass
+			},
+			success: function(info){
+				if (info == '0') {
+					window.location.href="";
+				} else {
+					$('.login-status-mob').html("Credentials invalid.");
+				}
+			},
+			error: function(xhr, status, error) {
+				alert('ERROR: ' + error);
+			}
+		});
 	});
 });
